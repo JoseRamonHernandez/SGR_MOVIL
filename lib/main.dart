@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:sgr_application1/pages/home.dart';
+import 'package:sgr_application1/pages/home_route.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,8 +40,10 @@ class _InicioState extends State<Inicio> {
               constraints: BoxConstraints.expand(),
               child: FlatButton(
                   onPressed: () => {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Home()))
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Home_route()))
                       },
                   padding: EdgeInsets.all(0.0),
                   child: Image.asset("assets/logo1.png"))),
