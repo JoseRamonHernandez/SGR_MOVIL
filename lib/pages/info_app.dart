@@ -11,6 +11,7 @@ class Info_app extends StatelessWidget {
         appBar: AppBar(
             title: Text("Derechos de Autor",
                 style: TextStyle(color: Colors.white)),
+            automaticallyImplyLeading: false,
             backgroundColor: Colors.yellowAccent),
         // bottomNavigationBar: BNavigator(),
         body: Padding(
@@ -41,7 +42,7 @@ class Info_app extends StatelessWidget {
             ),
             Text("\n"),
             Text(
-                "Alumnos de la Universidad Tecnologica de Tlaxcala en la carrera Ingenieria en Desarrollo y Gestión de Software",
+                "Alumnos de la Universidad Tecnológica de Tlaxcala en la carrera Ingeniería en Desarrollo y Gestión de Software",
                 style: TextStyle(fontSize: 20.0),
                 textAlign: TextAlign.justify),
             //Text("\n"),

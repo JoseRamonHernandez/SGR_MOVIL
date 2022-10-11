@@ -9,6 +9,7 @@ class Help extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: Text("Ayuda", style: TextStyle(color: Colors.white)),
+            automaticallyImplyLeading: false,
           backgroundColor: Colors.black),
       // bottomNavigationBar: BNavigator(),
       body: Center(

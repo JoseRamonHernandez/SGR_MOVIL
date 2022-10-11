@@ -9,6 +9,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: Text("MENÚS DISPONIBLES"),
+            automaticallyImplyLeading: false,
           backgroundColor: Colors.deepPurpleAccent),
       //  bottomNavigationBar: BNavigator(),
       body: Center(
