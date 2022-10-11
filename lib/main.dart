@@ -31,10 +31,10 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
+        /*  appBar: AppBar(
           title: Text("Restaurante LA PLAZUELA"),
           backgroundColor: Colors.orangeAccent,
-        ),
+        ),*/
         body: Container(
           child: ConstrainedBox(
               constraints: BoxConstraints.expand(),
