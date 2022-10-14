@@ -36,10 +36,10 @@ class Detail extends StatelessWidget {
       // bottomNavigationBar: BNavigator(),
       body: ListView(
         children: <Widget>[
-          Text("(Chilaquiles Verdes)",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          Text("Chilaquiles Verdes",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
           Image.asset('assets/chilaquiles-verdes.png'),
-          Text("\n"),
+          // Text("\n"),
           Text("PRECIO DEL PLATILLO: 50 pesos \n"),
           Text(
               "Platillo tradicional de tortilla con forma de triangulo freida en aceite y bañada de salsa verde, con queso, crema y pollo encima. ",

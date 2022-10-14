@@ -30,13 +30,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.redAccent[700],
         appBar: AppBar(
-            title: Text("PLATILLOS DISPONIBLES"),
+            title: Text("CARTA", style: TextStyle(color: Colors.white)),
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.deepPurpleAccent),
+            backgroundColor: Colors.redAccent[700]),
         body: ListView(
           children: <Widget>[
+            Image.asset('assets/logo2.png'),
             miCardImageCarga3(),
             miCardImageCarga2(),
             miCardImageCarga1(),
