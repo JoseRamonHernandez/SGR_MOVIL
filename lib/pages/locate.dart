@@ -7,12 +7,12 @@ class Locate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.orangeAccent[800],
+        backgroundColor: Colors.orange,
         appBar: AppBar(
             title: Text("LA PLAZUELA - Información",
                 style: TextStyle(color: Colors.white)),
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.orangeAccent[800]),
+            backgroundColor: Colors.orange),
         //  bottomNavigationBar: BNavigator(),
         body: ListView(children: <Widget>[
           Text(

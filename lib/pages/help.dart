@@ -10,24 +10,29 @@ class Help extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
           title: Text("Ayuda", style: TextStyle(color: Colors.white)),
-          leading: IconButton(
-              onPressed: null,
-              icon: Icon(Icons.help_outline_rounded),
-              color: Colors.white),
           automaticallyImplyLeading: false,
           backgroundColor: Colors.black),
       // bottomNavigationBar: BNavigator(),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(20.0),
           child: ListView(children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.ad_units),
-              iconSize: 60,
-              color: Colors.tealAccent[700],
-              onPressed: null,
+            Icon(
+              Icons.ad_units,
+              color: Colors.blue,
+              size: 120.0,
             ),
-            Text("Aplicación móvil para levantamiento de pedido"),
+            Text("Aplicación móvil para levantamiento de pedido",
+                textAlign: TextAlign.center),
+            Padding(padding: EdgeInsets.all(10)),
+            Icon(
+              Icons.ad_units,
+              color: Colors.blue,
+              size: 120.0,
+            ),
+            Text("Aplicación móvil para levantamiento de pedido",
+                textAlign: TextAlign.center),
+            Padding(padding: EdgeInsets.all(10))
           ]),
         ),
       ),
