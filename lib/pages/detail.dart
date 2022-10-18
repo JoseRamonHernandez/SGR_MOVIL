@@ -32,29 +32,35 @@ class Detail extends StatelessWidget {
       appBar: AppBar(
           title: Text("Descripción del platillo",
               style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.brown),
+          backgroundColor: Colors.blue),
       // bottomNavigationBar: BNavigator(),
-      body: ListView(
-        children: <Widget>[
-          Text("Chilaquiles Verdes",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-          Image.asset('assets/chilaquiles-verdes.png'),
-          // Text("\n"),
-          Text("PRECIO DEL PLATILLO: 50 pesos \n"),
-          Text(
-              "Platillo tradicional de tortilla con forma de triangulo freida en aceite y bañada de salsa verde, con queso, crema y pollo encima. ",
-              style: TextStyle(fontSize: 10.0),
-              textAlign: TextAlign.justify),
-          IconButton(
-            icon: Icon(Icons.add_shopping_cart_rounded),
-            iconSize: 40,
-            color: Colors.greenAccent[700],
-            onPressed: () => {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Buy()))
-            },
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
+          children: <Widget>[
+            Text("* Chilaquiles Verdes",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+            Image.asset('assets/chilaquiles-verdes.png'),
+            // Text("\n"),
+            Text(
+              "PRECIO DEL PLATILLO: 50 pesos \n",
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+                "Platillo tradicional de tortilla con forma de triangulo freida en aceite y bañada de salsa verde, con queso, crema y pollo encima. ",
+                style: TextStyle(fontSize: 20.0),
+                textAlign: TextAlign.justify),
+            IconButton(
+              icon: Icon(Icons.add_shopping_cart_rounded),
+              iconSize: 40,
+              color: Colors.greenAccent[700],
+              onPressed: () => {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Buy()))
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
