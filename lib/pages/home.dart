@@ -187,29 +187,29 @@ class _HomePageState extends State<HomePage> {
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                 title: Text('Chilaquiles Verdes'),
                 subtitle: Text('PRECIO: 50 pesos '),
-                leading: IconButton(
+                /*leading: IconButton(
                   icon: Icon(Icons.local_grocery_store_sharp),
                   iconSize: 40,
                   color: Colors.green,
                   onPressed: null,
-                ),
+                ),*/
               ),
 
               // Usamos una fila para ordenar los botones del card
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
+                  new FlatButton.icon(
+                    icon: const Icon(Icons.local_grocery_store_sharp,
+                        size: 20.0, color: Colors.greenAccent),
+                    label: const Text('Comprar',
+                        style: TextStyle(
+                            fontSize: 20.0, color: Colors.greenAccent)),
                     onPressed: () => {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Detail()))
                     },
-                    child: Text('Comprar',
-                        style: TextStyle(
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green.shade900)),
-                  ),
+                  )
                 ],
               )
             ],
