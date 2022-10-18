@@ -10,12 +10,12 @@ class Info_app extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
           title:
-              Text("Derechos de Autor", style: TextStyle(color: Colors.white)),
+              Text("Derechos de Autor", style: TextStyle(color: Colors.black)),
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.yellowAccent),
+          backgroundColor: Colors.yellow[400]),
       // bottomNavigationBar: BNavigator(),
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(children: <Widget>[
           Text("Esta aplicación móvil, fue desarrollada por: ",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal)),
