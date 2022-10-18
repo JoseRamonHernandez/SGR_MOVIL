@@ -7,25 +7,29 @@ class Locate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.orange,
+        //backgroundColor: Colors.orange,
         appBar: AppBar(
             title: Text("LA PLAZUELA - Información",
                 style: TextStyle(color: Colors.white)),
             automaticallyImplyLeading: false,
             backgroundColor: Colors.orange),
         //  bottomNavigationBar: BNavigator(),
-        body: ListView(children: <Widget>[
-          Text(
-            "\n Restaurante LA PLAZUELA te invita a conocer personalmente en nuestro negocio..................\n",
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
-            textAlign: TextAlign.center,
-          ),
-          telefono(),
-          horarios(),
-          direccion(),
-          Text("\n Más sobre nosotros: \n"),
-          Text("COLOCAR IMAGENES DEL RESTAURANTE")
-        ]));
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView(children: <Widget>[
+            Text(
+              "\n Restaurante LA PLAZUELA te invita a conocer personalmente en nuestro negocio..................\n",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+              textAlign: TextAlign.center,
+            ),
+            telefono(),
+            horarios(),
+            direccion(),
+            Text("\n Más sobre nosotros: \n",
+                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
+            Text("('COLOCAR IMAGENES DEL RESTAURANTE')")
+          ]),
+        ));
   }
 
   Card telefono() {
