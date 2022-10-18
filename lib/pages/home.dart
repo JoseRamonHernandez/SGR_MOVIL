@@ -275,20 +275,6 @@ class _HomePageState extends State<HomePage> {
 
 Widget _crearAppBAr() {
   return SliverAppBar(
-    /*elevation: 2.0,
-    backgroundColor: Colors.black,
-    expandedHeight: 180.0,
-    floating: false,
-    pinned: true,
-    flexibleSpace: FlexibleSpaceBar(
-      centerTitle: true,
-      title: Text(
-        'Carta',
-        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-      ),
-      background: (Image.asset('assets/plazuela.jpeg')),
-      fit
-    ),*/
     backgroundColor: Colors.black,
     floating: true,
     pinned: true,
