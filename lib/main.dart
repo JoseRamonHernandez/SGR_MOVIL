@@ -46,7 +46,7 @@ class _InicioState extends State<Inicio> {
                                 builder: (context) => Home_route()))
                       },
                   padding: EdgeInsets.all(0.0),
-                  child: Image.asset("assets/logo1.png"))),
+                  child: Image.asset("assets/Logo-plazuela.jpeg"))),
         ));
   }
 }
