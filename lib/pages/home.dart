@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/main.dart';
 import 'package:sgr_application1/pages/home.dart';
 import 'package:sgr_application1/pages/home_route.dart';
 
@@ -30,20 +31,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.redAccent[700],
-        appBar: AppBar(
-            title: Text("CARTA", style: TextStyle(color: Colors.white)),
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.redAccent[700]),
-        body: ListView(
-          children: <Widget>[
-            Image.asset('assets/logo2.png'),
-            miCardImageCarga3(),
-            miCardImageCarga2(),
-            miCardImageCarga1(),
-            miCardImageCarga4(),
-          ],
-        ));
+      //backgroundColor: Colors.blue[700],
+      body: CustomScrollView(
+        slivers: <Widget>[
+          _crearAppBAr(),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              SizedBox(
+                height: 10.0,
+              ),
+              miCardImageCarga3(),
+              miCardImageCarga2(),
+              miCardImageCarga1(),
+              miCardImageCarga4(),
+            ]),
+          ),
+        ],
+      ),
+    );
   }
 
   Card miCardImageCarga1() {
@@ -55,31 +60,28 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(20),
           child: Column(
             children: <Widget>[
-              FadeInImage(
-                // En esta propiedad colocamos la imagen a descargar
-                image: AssetImage('assets/salmon.png'),
-
-                //AÑADIR IMAGEN DESDE LA WEB
-                /* image: NetworkImage(
-                    'https://staticuestudio.blob.core.windows.net/buhomag/2016/03/01195417/pexels-com.jpg'),
-                */
-
-                // En esta propiedad colocamos el gif o imagen de carga
-                // debe estar almacenado localmente
-                placeholder: AssetImage('assets/loading.gif'),
-
-                // En esta propiedad colocamos mediante el objeto BoxFit
-                // la forma de acoplar la imagen en su contenedor
-                fit: BoxFit.cover,
-
-                // En esta propiedad colocamos el alto de nuestra imagen
-                height: 260,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.orange,
+                  radius: 130,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/salmon.png"),
+                    radius: 120,
+                  ),
+                  //CircleAvatar
+                ),
               ),
               ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                 title: Text('Salmon a la plancha con verduras'),
                 subtitle: Text('PRECIO: 700 pesos'),
-                leading: Icon(Icons.local_grocery_store_sharp),
+                leading: IconButton(
+                  icon: Icon(Icons.local_grocery_store_sharp),
+                  iconSize: 40,
+                  color: Colors.green,
+                  onPressed: null,
+                ),
               ),
 
               // Usamos una fila para ordenar los botones del card
@@ -113,31 +115,28 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(20),
           child: Column(
             children: <Widget>[
-              FadeInImage(
-                // En esta propiedad colocamos la imagen a descargar
-                image: AssetImage('assets/mole.png'),
-
-                //AÑADIR IMAGEN DESDE LA WEB
-                /* image: NetworkImage(
-                    'https://staticuestudio.blob.core.windows.net/buhomag/2016/03/01195417/pexels-com.jpg'),
-                */
-
-                // En esta propiedad colocamos el gif o imagen de carga
-                // debe estar almacenado localmente
-                placeholder: AssetImage('assets/loading.gif'),
-
-                // En esta propiedad colocamos mediante el objeto BoxFit
-                // la forma de acoplar la imagen en su contenedor
-                fit: BoxFit.cover,
-
-                // En esta propiedad colocamos el alto de nuestra imagen
-                height: 260,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.orange,
+                  radius: 130,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/mole.png"),
+                    radius: 120,
+                  ),
+                  //CircleAvatar
+                ),
               ),
               ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                 title: Text('Mole poblano'),
                 subtitle: Text('PRECIO: 85 pesos '),
-                leading: Icon(Icons.local_grocery_store_sharp),
+                leading: IconButton(
+                  icon: Icon(Icons.local_grocery_store_sharp),
+                  iconSize: 40,
+                  color: Colors.green,
+                  onPressed: null,
+                ),
               ),
 
               // Usamos una fila para ordenar los botones del card
@@ -171,31 +170,29 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(20),
           child: Column(
             children: <Widget>[
-              FadeInImage(
-                // En esta propiedad colocamos la imagen a descargar
-                image: AssetImage('assets/chilaquiles-verdes.png'),
-
-                //AÑADIR IMAGEN DESDE LA WEB
-                /* image: NetworkImage(
-                    'https://staticuestudio.blob.core.windows.net/buhomag/2016/03/01195417/pexels-com.jpg'),
-                */
-
-                // En esta propiedad colocamos el gif o imagen de carga
-                // debe estar almacenado localmente
-                placeholder: AssetImage('assets/loading.gif'),
-
-                // En esta propiedad colocamos mediante el objeto BoxFit
-                // la forma de acoplar la imagen en su contenedor
-                fit: BoxFit.cover,
-
-                // En esta propiedad colocamos el alto de nuestra imagen
-                height: 260,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.orange,
+                  radius: 130,
+                  child: CircleAvatar(
+                    backgroundImage:
+                        AssetImage("assets/chilaquiles-verdes.png"),
+                    radius: 120,
+                  ),
+                  //CircleAvatar
+                ),
               ),
               ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                 title: Text('Chilaquiles Verdes'),
                 subtitle: Text('PRECIO: 50 pesos '),
-                leading: Icon(Icons.local_grocery_store_sharp),
+                leading: IconButton(
+                  icon: Icon(Icons.local_grocery_store_sharp),
+                  iconSize: 40,
+                  color: Colors.green,
+                  onPressed: null,
+                ),
               ),
 
               // Usamos una fila para ordenar los botones del card
@@ -222,6 +219,7 @@ class _HomePageState extends State<HomePage> {
 
   Card miCardImageCarga4() {
     return Card(
+        color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         margin: EdgeInsets.all(15),
         elevation: 10,
@@ -229,31 +227,27 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(20),
           child: Column(
             children: <Widget>[
-              FadeInImage(
-                // En esta propiedad colocamos la imagen a descargar
-                image: AssetImage('assets/pozole.png'),
-
-                //AÑADIR IMAGEN DESDE LA WEB
-                /* image: NetworkImage(
-                    'https://staticuestudio.blob.core.windows.net/buhomag/2016/03/01195417/pexels-com.jpg'),
-                */
-
-                // En esta propiedad colocamos el gif o imagen de carga
-                // debe estar almacenado localmente
-                placeholder: AssetImage('assets/loading.gif'),
-
-                // En esta propiedad colocamos mediante el objeto BoxFit
-                // la forma de acoplar la imagen en su contenedor
-                fit: BoxFit.cover,
-
-                // En esta propiedad colocamos el alto de nuestra imagen
-                height: 260,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.orange,
+                  radius: 130,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("assets/pozole.png"),
+                    radius: 120,
+                  ), //CircleAvatar
+                ),
               ),
               ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                 title: Text('Pozole rojo'),
                 subtitle: Text('PRECIO: 60 pesos'),
-                leading: Icon(Icons.local_grocery_store_sharp),
+                leading: IconButton(
+                  icon: Icon(Icons.local_grocery_store_sharp),
+                  iconSize: 40,
+                  color: Colors.green,
+                  onPressed: null,
+                ),
               ),
 
               // Usamos una fila para ordenar los botones del card
@@ -277,17 +271,34 @@ class _HomePageState extends State<HomePage> {
           ),
         ));
   }
+}
 
-  Widget _buildGrid() => GridView.extent(
-      maxCrossAxisExtent: 150,
-      padding: const EdgeInsets.all(4),
-      mainAxisSpacing: 4,
-      crossAxisSpacing: 4,
-      children: _buildGridTileList(30));
-
-// Las imágenes estan guardadas con nombres pic0.jpg, pic1.jpg...pic29.jpg.
-// El constructor List.generate() permite una forma sencilla de crear
-// una lista cuando los objetos tienen un patrón de nombre predecible.
-  List<Container> _buildGridTileList(int count) => List.generate(
-      count, (i) => Container(child: Image.asset('assets/pic$i.jpg')));
+Widget _crearAppBAr() {
+  return SliverAppBar(
+    /*elevation: 2.0,
+    backgroundColor: Colors.black,
+    expandedHeight: 180.0,
+    floating: false,
+    pinned: true,
+    flexibleSpace: FlexibleSpaceBar(
+      centerTitle: true,
+      title: Text(
+        'Carta',
+        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+      ),
+      background: (Image.asset('assets/plazuela.jpeg')),
+      fit
+    ),*/
+    backgroundColor: Colors.black,
+    floating: true,
+    pinned: true,
+    centerTitle: false,
+    title: Text("CARTA",
+        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+    expandedHeight: 200,
+    flexibleSpace: Image.asset(
+      'assets/plazuela.jpeg',
+      fit: BoxFit.cover,
+    ),
+  );
 }
