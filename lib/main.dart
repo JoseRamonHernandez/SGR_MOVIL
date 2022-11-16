@@ -49,4 +49,4 @@ class _InicioState extends State<Inicio> {
                   child: Image.asset("assets/logo1.png"))),
         ));
   }
-}
+} 
