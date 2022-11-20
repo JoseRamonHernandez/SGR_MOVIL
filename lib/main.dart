@@ -1,8 +1,8 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/pages/help.dart';
 import 'package:sgr_application1/pages/home.dart';
-import 'package:sgr_application1/pages/home_route.dart';
+import 'package:sgr_application1/pages/info_app.dart';
+import 'package:sgr_application1/pages/locate.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,41 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "SGR",
-      home: Inicio(),
       debugShowCheckedModeBanner: false,
+      initialRoute: HomePage.id,
+      routes: {
+        HomePage.id: (context) => HomePage(),
+        LocatePage.id: (context) => LocatePage(),
+        HelpPage.id: (context) => HelpPage(),
+        Info_app.id: (context) => Info_app(),
+      },
     );
   }
 }
-
-class Inicio extends StatefulWidget {
-  Inicio({Key? key}) : super(key: key);
-
-  @override
-  _InicioState createState() => _InicioState();
-}
-
-class _InicioState extends State<Inicio> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        /*  appBar: AppBar(
-          title: Text("Restaurante LA PLAZUELA"),
-          backgroundColor: Colors.orangeAccent,
-        ),*/
-        body: Container(
-          child: ConstrainedBox(
-              constraints: BoxConstraints.expand(),
-              child: FlatButton(
-                  onPressed: () => {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Home_route()))
-                      },
-                  padding: EdgeInsets.all(0.0),
-                  child: Image.asset("assets/logo1.png"))),
-        ));
-  }
-} 

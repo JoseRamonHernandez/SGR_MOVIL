@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:sgr_application1/BNavigation/bottom_nav.dart';
 
-class Locate extends StatelessWidget {
-  const Locate({Key? key}) : super(key: key);
+class LocatePage extends StatefulWidget {
+  static String id = 'locate_page';
 
   @override
+  State<LocatePage> createState() => _LocatePageState();
+}
+
+class _LocatePageState extends State<LocatePage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.orangeAccent[800],
-        appBar: AppBar(
-            title: Text("LA PLAZUELA - Información",
-                style: TextStyle(color: Colors.white)),
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.orangeAccent[800]),
-        //  bottomNavigationBar: BNavigator(),
-        body: ListView(children: <Widget>[
-          Text(
-            "\n Restaurante LA PLAZUELA te invita a conocer personalmente en nuestro negocio..................\n",
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
-            textAlign: TextAlign.center,
-          ),
-          telefono(),
-          horarios(),
-          direccion(),
-          Text("\n Más sobre nosotros: \n"),
-          Text("COLOCAR IMAGENES DEL RESTAURANTE")
-        ]));
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.orangeAccent[800],
+          appBar: AppBar(
+              title: Text("LA PLAZUELA - Información",
+                  style: TextStyle(color: Colors.white)),
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.orangeAccent[800]),
+          //  bottomNavigationBar: BNavigator(),
+          body: ListView(children: <Widget>[
+            Text(
+              "\n Restaurante LA PLAZUELA te invita a conocer personalmente en nuestro negocio..................\n",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+              textAlign: TextAlign.center,
+            ),
+            telefono(),
+            horarios(),
+            direccion(),
+            Text("\n Más sobre nosotros: \n"),
+            Text("COLOCAR IMAGENES DEL RESTAURANTE")
+          ])),
+    );
   }
 
   Card telefono() {
