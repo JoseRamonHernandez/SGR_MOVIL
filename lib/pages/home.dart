@@ -2,10 +2,13 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:sgr_application1/main.dart';
+//import 'package:sgr_application1/models/elementos.dart';
 import 'package:sgr_application1/pages/home.dart';
 import 'package:sgr_application1/pages/home_route.dart';
 
 import 'detail.dart';
+
+//import 'package:http/http.dart' as http;
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

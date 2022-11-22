@@ -1,8 +1,11 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/models/Elementos.dart';
 import 'package:sgr_application1/pages/home.dart';
 import 'package:sgr_application1/pages/home_route.dart';
+
+import 'package:http/http.dart' as http;
 
 void main() => runApp(MyApp());
 
@@ -27,6 +30,25 @@ class Inicio extends StatefulWidget {
 }
 
 class _InicioState extends State<Inicio> {
+   late Future<List<Elementos>> _listadoElementos;
+
+  /*Future<List<Elementos>>*/ _getElementos() async {
+    final response =
+        await http.get(Uri.http("127.0.0.1:8000", "/api/findCategoria/2"));
+
+    if (response.statusCode == 200) {
+      print(response.body);
+    } else {
+      throw Exception("Fallo en la conexion");
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getElementos();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
