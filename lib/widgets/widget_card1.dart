@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sgr_application1/pages/detail.dart';
+import 'package:sgr_application1/pages/detail1.dart';
 
 class Card1 extends StatelessWidget {
   //const Card1({super.key});
@@ -32,11 +32,11 @@ class Card1 extends StatelessWidget {
                 fit: BoxFit.cover,
 
                 // En esta propiedad colocamos el alto de nuestra imagen
-                height: 200,
+                height: 150,
               ),
               ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
-                title: Text('Salmon a la plancha con verduras'),
+                title: Text('Salmón a la plancha con verduras'),
                 subtitle: Text('PRECIO: 700 pesos'),
                 leading: Icon(Icons.local_grocery_store_sharp),
               ),
@@ -47,8 +47,10 @@ class Card1 extends StatelessWidget {
                 children: <Widget>[
                   FloatingActionButton(
                     onPressed: () => {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => DetailPage()))
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Detail1Page()))
                     },
                     child: Text('Ordenar',
                         style: TextStyle(

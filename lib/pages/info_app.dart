@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/pages/home.dart';
 
 class Info_app extends StatefulWidget {
   static String id = 'info_app';
@@ -14,11 +15,17 @@ class _Info_appState extends State<Info_app> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-            title: Text("Derechos de Autor",
-                style: TextStyle(color: Colors.white)),
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.yellowAccent),
-        // bottomNavigationBar: BNavigator(),
+          backgroundColor: Colors.amber[600],
+          title:
+              Text("Derechos de Autor", style: TextStyle(color: Colors.white)),
+          leading: IconButton(
+              onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()))
+                  },
+              icon: Icon(Icons.arrow_back),
+              color: Colors.white),
+        ),
         body: ListView(children: <Widget>[
           Text("Esta aplicación móvil, fue desarrollada por: ",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal)),

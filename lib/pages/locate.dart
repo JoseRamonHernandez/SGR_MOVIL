@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/pages/home.dart';
 
 class LocatePage extends StatefulWidget {
   static String id = 'locate_page';
@@ -14,10 +15,17 @@ class _LocatePageState extends State<LocatePage> {
       child: Scaffold(
           backgroundColor: Colors.orangeAccent[800],
           appBar: AppBar(
-              title: Text("LA PLAZUELA - Información",
-                  style: TextStyle(color: Colors.white)),
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.orangeAccent[800]),
+            backgroundColor: Colors.amber[600],
+            title: Text("LA PLAZUELA - Información",
+                style: TextStyle(color: Colors.white)),
+            leading: IconButton(
+                onPressed: () => {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()))
+                    },
+                icon: Icon(Icons.arrow_back),
+                color: Colors.white),
+          ),
           //  bottomNavigationBar: BNavigator(),
           body: ListView(children: <Widget>[
             Text(

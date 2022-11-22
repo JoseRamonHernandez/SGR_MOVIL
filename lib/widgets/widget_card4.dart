@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sgr_application1/pages/detail.dart';
+import 'package:sgr_application1/pages/detail3.dart';
 
 class Card4 extends StatelessWidget {
   // const Card4({super.key});
@@ -47,8 +47,10 @@ class Card4 extends StatelessWidget {
                 children: <Widget>[
                   FloatingActionButton(
                     onPressed: () => {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => DetailPage()))
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Detail3Page()))
                     },
                     child: Text('Ordenar',
                         style: TextStyle(
