@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:sgr_application1/BNavigation/bottom_nav.dart';
+import 'package:sgr_application1/pages/home.dart';
 
-class Info_app extends StatelessWidget {
-  const Info_app({Key? key}) : super(key: key);
+class Info_app extends StatefulWidget {
+  static String id = 'info_app';
 
   @override
+  State<Info_app> createState() => _Info_appState();
+}
+
+class _Info_appState extends State<Info_app> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.amber[600],
           title:
-              Text("Derechos de Autor", style: TextStyle(color: Colors.black)),
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.yellow[400]),
-      // bottomNavigationBar: BNavigator(),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(children: <Widget>[
+              Text("Derechos de Autor", style: TextStyle(color: Colors.white)),
+          leading: IconButton(
+              onPressed: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()))
+                  },
+              icon: Icon(Icons.arrow_back),
+              color: Colors.white),
+        ),
+        body: ListView(children: <Widget>[
           Text("Esta aplicación móvil, fue desarrollada por: ",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal)),
           Text("\n"),

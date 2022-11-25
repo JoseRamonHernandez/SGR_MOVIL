@@ -1,29 +1,10 @@
-/*
 import 'package:flutter/material.dart';
-
-import 'WidgetArguments.dart';
-
-class detail extends StatelessWidget
-{
-
-  @override
-  Widget build(BuildContext context)
-  {
-    final Object arguments= ModalRoute.of(context).settings.arguments;
-    return Scaffold(
-      body: Center(
-        child: Text(arguments.nombre)
-      ),
-    )
-  }
-}*/
-
-import 'package:flutter/material.dart';
+import 'package:sgr_application1/pages/buy.dart';
 import 'package:sgr_application1/pages/home.dart';
 
-import 'buy.dart';
+class Detail3Page extends StatelessWidget {
+  // const Detail3Page({super.key});
 
-class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,13 +24,13 @@ class DetailPage extends StatelessWidget {
         // bottomNavigationBar: BNavigator(),
         body: ListView(
           children: <Widget>[
-            Text("Chilaquiles Verdes",
+            Text("Pozole rojo",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            Image.asset('assets/chilaquiles-verdes.png'),
+            Image.asset('assets/pozole.png'),
             // Text("\n"),
-            Text("PRECIO DEL PLATILLO: 50 pesos \n"),
+            Text("PRECIO DEL PLATILLO: 60 pesos \n"),
             Text(
-                "Platillo tradicional de tortilla con forma de triangulo freida en aceite y bañada de salsa verde, con queso, crema y pollo encima. ",
+                "Platillo típico de la gastronomía mexicana. Uso de chile guajillo en su preparación y se acompaña de carne ",
                 style: TextStyle(fontSize: 10.0),
                 textAlign: TextAlign.justify),
             IconButton(

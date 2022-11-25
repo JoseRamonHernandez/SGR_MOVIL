@@ -1,26 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:io';
-
 import 'package:sgr_application1/pages/home.dart';
 
-class Buy extends StatelessWidget {
-  // This widget is the root of your application.
+class BuyPage extends StatelessWidget {
+  // static String id = 'buy_page';
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           title: Text('Formulario de compra'),
           leading: IconButton(
               onPressed: () => {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()))
+                        MaterialPageRoute(builder: (context) => HomePage()))
                   },
               icon: Icon(Icons.arrow_back),
               color: Colors.white),
@@ -116,6 +109,7 @@ class MainFormState extends State<MainForm> {
           ),
         ),
       ),
+
     );
   }
 }
