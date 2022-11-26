@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_application1/pages/home.dart';
+import 'package:sgr_application1/pages/product.dart';
 
 class BuyPage extends StatelessWidget {
   // static String id = 'buy_page';
@@ -9,6 +10,7 @@ class BuyPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.amber[600],
           title: Text('Formulario de compra'),
           leading: IconButton(
               onPressed: () => {
@@ -42,7 +44,7 @@ class MainFormState extends State<MainForm> {
       child: SingleChildScrollView(
         child: Card(
           elevation: 16.0,
-          shadowColor: Colors.deepPurple,
+          shadowColor: Colors.amber[600],
           margin: EdgeInsets.all(16),
           child: Padding(
             padding: EdgeInsets.all(16),
@@ -95,7 +97,10 @@ class MainFormState extends State<MainForm> {
                 ),
                 Padding(padding: EdgeInsets.symmetric(vertical: 16)),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber[600]),
                     onPressed: () {
+                      Navigator.pushNamed(context, ProductPage.id);
                       // If the form is true (valid), or false.
                       if (_formKey.currentState!.validate()) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -109,7 +114,6 @@ class MainFormState extends State<MainForm> {
           ),
         ),
       ),
-
     );
   }
 }

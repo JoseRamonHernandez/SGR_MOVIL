@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sgr_application1/pages/detail2.dart';
 
 class Card2 extends StatelessWidget {
-  // const Card2({super.key});
+  const Card2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class Card2 extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           child: Column(
             children: <Widget>[
-              FadeInImage(
+              const FadeInImage(
                 // En esta propiedad colocamos la imagen a descargar
                 image: AssetImage('assets/mole.png'),
 
@@ -34,7 +34,7 @@ class Card2 extends StatelessWidget {
                 // En esta propiedad colocamos el alto de nuestra imagen
                 height: 200,
               ),
-              ListTile(
+              const ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                 title: Text('Mole poblano'),
                 subtitle: Text('PRECIO: 85 pesos '),
@@ -45,7 +45,9 @@ class Card2 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FloatingActionButton(
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber[600]),
                     onPressed: () => {
                       Navigator.push(
                           context,
@@ -56,7 +58,7 @@ class Card2 extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 10.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green.shade900)),
+                            color: Colors.white)),
                   ),
                 ],
               )

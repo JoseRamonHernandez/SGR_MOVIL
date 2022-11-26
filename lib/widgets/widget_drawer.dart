@@ -3,6 +3,7 @@ import 'package:sgr_application1/pages/help.dart';
 import 'package:sgr_application1/pages/home.dart';
 import 'package:sgr_application1/pages/info_app.dart';
 import 'package:sgr_application1/pages/locate.dart';
+import 'package:sgr_application1/pages/product.dart';
 
 class MenuLateral extends StatelessWidget {
   //const MenuLateral({super.key});
@@ -30,6 +31,13 @@ class MenuLateral extends StatelessWidget {
             leading: Icon(Icons.restaurant_menu),
             onTap: () {
               Navigator.pushNamed(context, HomePage.id);
+            },
+          ),
+          ListTile(
+            title: const Text('Mis pedidos'),
+            leading: Icon(Icons.person),
+            onTap: () {
+              Navigator.pushNamed(context, ProductPage.id);
             },
           ),
           ListTile(

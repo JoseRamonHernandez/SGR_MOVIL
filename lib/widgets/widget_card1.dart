@@ -45,7 +45,9 @@ class Card1 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FloatingActionButton(
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.amber[600]),
                     onPressed: () => {
                       Navigator.push(
                           context,
@@ -56,7 +58,7 @@ class Card1 extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 10.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green.shade900)),
+                            color: Colors.white)),
                   ),
                 ],
               )
