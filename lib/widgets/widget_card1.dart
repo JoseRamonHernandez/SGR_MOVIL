@@ -9,7 +9,7 @@ class Card1 extends StatelessWidget {
     return Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         margin: EdgeInsets.all(5),
-        elevation: 10,
+        elevation: 5,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Column(
@@ -32,7 +32,7 @@ class Card1 extends StatelessWidget {
                 fit: BoxFit.cover,
 
                 // En esta propiedad colocamos el alto de nuestra imagen
-                height: 150,
+                height: 200,
               ),
               ListTile(
                 contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),

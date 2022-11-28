@@ -17,7 +17,7 @@ class _Info_appState extends State<Info_app> {
         appBar: AppBar(
           backgroundColor: Colors.amber[600],
           title:
-              Text("Derechos de Autor", style: TextStyle(color: Colors.white)),
+              Text('Derechos de Autor', style: TextStyle(color: Colors.white)),
           leading: IconButton(
               onPressed: () => {
                     Navigator.push(context,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_application1/pages/home.dart';
-import 'package:sgr_application1/pages/product.dart';
 
 class BuyPage extends StatelessWidget {
   // static String id = 'buy_page';
@@ -100,7 +99,6 @@ class MainFormState extends State<MainForm> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.amber[600]),
                     onPressed: () {
-                      Navigator.pushNamed(context, ProductPage.id);
                       // If the form is true (valid), or false.
                       if (_formKey.currentState!.validate()) {
                         ScaffoldMessenger.of(context).showSnackBar(

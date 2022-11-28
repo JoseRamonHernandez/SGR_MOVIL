@@ -3,7 +3,6 @@ import 'package:sgr_application1/pages/help.dart';
 import 'package:sgr_application1/pages/home.dart';
 import 'package:sgr_application1/pages/info_app.dart';
 import 'package:sgr_application1/pages/locate.dart';
-import 'package:sgr_application1/pages/product.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,7 +19,6 @@ class MyApp extends StatelessWidget {
         LocatePage.id: (context) => LocatePage(),
         HelpPage.id: (context) => HelpPage(),
         Info_app.id: (context) => Info_app(),
-        ProductPage.id: (context) => ProductPage(),
       },
     );
   }

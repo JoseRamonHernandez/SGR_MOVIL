@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/widgets/widget_drawer.dart';
 
 class HelpPage extends StatefulWidget {
   static String id = 'help_page';
@@ -14,13 +15,10 @@ class _HelpPageState extends State<HelpPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-            title: Text("Ayuda", style: TextStyle(color: Colors.white)),
-            leading: IconButton(
-                onPressed: null,
-                icon: Icon(Icons.help_outline_rounded),
-                color: Colors.white),
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.black),
+          backgroundColor: Colors.amber[600],
+          title: const Text('Ayuda'),
+        ),
+        drawer: MenuLateral(),
         // bottomNavigationBar: BNavigator(),
         body: Center(
           child: Padding(
