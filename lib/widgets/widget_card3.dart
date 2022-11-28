@@ -32,13 +32,15 @@ class Card3 extends StatelessWidget {
                 fit: BoxFit.cover,
 
                 // En esta propiedad colocamos el alto de nuestra imagen
-                height: 200,
+                height: 100,
               ),
               ListTile(
-                contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
-                title: Text('Chilaquiles Verdes'),
-                subtitle: Text('PRECIO: 50 pesos '),
-                leading: Icon(Icons.local_grocery_store_sharp),
+                contentPadding: EdgeInsets.fromLTRB(15, 5, 25, 0),
+                title: Text('Chilaquiles Verdes',
+                    style: TextStyle(fontSize: 10.0)),
+                subtitle:
+                    Text('PRECIO: 50 pesos ', style: TextStyle(fontSize: 10.0)),
+                //leading: Icon(Icons.local_grocery_store_sharp),
               ),
 
               // Usamos una fila para ordenar los botones del card
@@ -52,7 +54,7 @@ class Card3 extends StatelessWidget {
                     },
                     child: Text('Ordenar',
                         style: TextStyle(
-                            fontSize: 15.0,
+                            fontSize: 10.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.green.shade900)),
                   ),

@@ -32,13 +32,14 @@ class Card4 extends StatelessWidget {
                 fit: BoxFit.cover,
 
                 // En esta propiedad colocamos el alto de nuestra imagen
-                height: 200,
+                height: 100,
               ),
               ListTile(
-                contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
-                title: Text('Pozole rojo'),
-                subtitle: Text('PRECIO: 60 pesos'),
-                leading: Icon(Icons.local_grocery_store_sharp),
+                contentPadding: EdgeInsets.fromLTRB(15, 5, 25, 0),
+                title: Text('Pozole rojo', style: TextStyle(fontSize: 10.0)),
+                subtitle:
+                    Text('PRECIO: 60 pesos', style: TextStyle(fontSize: 10.0)),
+                //leading: Icon(Icons.local_grocery_store_sharp),
               ),
 
               // Usamos una fila para ordenar los botones del card
