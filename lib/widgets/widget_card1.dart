@@ -49,10 +49,10 @@ class Card1 extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.amber[600]),
                     onPressed: () => {
-                      Navigator.push(
+                      /* Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Detail1Page()))
+                              builder: (context) => Detail1Page()))*/
                     },
                     child: Text('Ordenar',
                         style: TextStyle(
