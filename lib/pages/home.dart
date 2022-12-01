@@ -10,7 +10,7 @@ import 'package:sgr_application1/widgets/widget_drawer.dart';
 import 'package:http/http.dart' as http;
 
 import 'detail1.dart';
-import 'models/Platillos.dart';
+import 'models/PlatilloDetail.dart';
 
 class HomePage extends StatefulWidget {
   static String id = 'home_page';
@@ -20,17 +20,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<Platillos>> _listadoPlatillos;
+  late Future<List<PlatillosDetail>> _listadoPlatillos;
 
   var httpsUri = Uri(
       scheme: 'https',
       host: 'piedra-back.herokuapp.com',
       path: '/api/dishes/get-all');
 
-  Future<List<Platillos>> _getPlatillos() async {
+  Future<List<PlatillosDetail>> _getPlatillos() async {
     final response = await http.get(httpsUri);
 
-    List<Platillos> platillos = [];
+    List<PlatillosDetail> platillos = [];
 
     if (response.statusCode == 200) {
       //print(response.body);
@@ -41,8 +41,8 @@ class _HomePageState extends State<HomePage> {
       //print(jsonData["data"][0]["photos"]["path"]);
 
       for (var item in jsonData["data"]) {
-        platillos.add(Platillos(item["name"], item["price"], item["_id"],
-            item["photos"][0]["path"]));
+        platillos.add(PlatillosDetail(item["name"], item["price"], item["_id"],
+            item["photos"][0]["path"], item["description"]));
         //print(platillos);
       }
 
@@ -137,11 +137,11 @@ class _HomePageState extends State<HomePage> {
                       //image: AssetImage('assets/salmon.png'),
 
                       //AÑADIR IMAGEN DESDE LA WEB
-                      // image: NetworkImage(platillo.image),
+                      image: NetworkImage(platillo.img),
                       // image: Image.network('https://firebasestorage.googleapis.com/v0/b/la-plazuela-eae43.appspot.com/o/dishes%2F634b9e0deff40f56e804d478%2Fgu3si7vigt5.jpeg'),
-                      image: NetworkImage(
+                      /*image: NetworkImage(
                         'https://picsum.photos/250?image=9',
-                      ),
+                      ),*/
 
                       // En esta propiedad colocamos el gif o imagen de carga
                       // debe estar almacenado localmente
@@ -173,8 +173,12 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        Detail1Page(platillo.id)))
+                                    builder: (context) => Detail1Page(
+                                        platillo.id,
+                                        platillo.name,
+                                        platillo.description,
+                                        platillo.price,
+                                        platillo.img)))
                           },
                           child: Text('Ordenar',
                               style: TextStyle(
