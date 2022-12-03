@@ -1,10 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:sgr_application1/widgets/widget_card1.dart';
-import 'package:sgr_application1/widgets/widget_card2.dart';
-import 'package:sgr_application1/widgets/widget_card3.dart';
-import 'package:sgr_application1/widgets/widget_card4.dart';
 import 'package:sgr_application1/widgets/widget_drawer.dart';
 
 import 'package:http/http.dart' as http;
@@ -102,7 +98,12 @@ class _HomePageState extends State<HomePage> {
               );
             } else if (snapshot.hasError) {
               print(snapshot.error);
-              return Text("error-1");
+              return Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Center(
+                    child: Text(
+                        "Lo lamento. Ocurrio un error, comprueba tu conexión a internet e intentalo nuevamente")),
+              );
             }
 
             return Center(

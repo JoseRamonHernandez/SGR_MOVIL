@@ -33,13 +33,13 @@ class MenuLateral extends StatelessWidget {
               Navigator.pushNamed(context, HomePage.id);
             },
           ),
-          ListTile(
+          /* ListTile(
             title: const Text('Mis pedidos'),
             leading: Icon(Icons.person),
             onTap: () {
               Navigator.pushNamed(context, ProductPage.id);
             },
-          ),
+          ),*/
           ListTile(
             title: const Text('Acerca de Nosotros'),
             leading: Icon(Icons.food_bank),

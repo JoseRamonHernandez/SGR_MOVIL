@@ -61,7 +61,8 @@ class MainFormState extends State<MainForm> {
                   },
                 ),
                 TextFormField(
-                  decoration: new InputDecoration(hintText: "Dirección"),
+                  decoration: new InputDecoration(
+                      hintText: "Dirección o nombre de la Empresa"),
                   keyboardType: TextInputType.text,
                   validator: (value) {
                     if (value!.isEmpty || value.length < 20) {
@@ -85,11 +86,23 @@ class MainFormState extends State<MainForm> {
                 TextFormField(
                   decoration:
                       new InputDecoration(hintText: "Cantidad de platillos"),
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.number,
                   obscureText: true,
                   validator: (value) {
                     if (value!.isEmpty || value.length < 1) {
                       return 'Please enter a correct number (min 1)';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(
+                      hintText:
+                          "Hora de entrega (Aplica solo si es pedido de Empresa, si no aplica haga caso amiso)"),
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value!.isEmpty || value.length < 20) {
+                      return 'Please enter a correct adress (min 20)';
                     }
                     return null;
                   },
