@@ -21,22 +21,15 @@ class Detail1Page extends StatefulWidget {
 }
 
 class _Detail1PageState extends State<Detail1Page> {
-/*
-
-  late Future<List<PlatillosDetail>> _listadoPlatillos;
+  /* late Future<List<PlatillosDetail>> _listadoPlatillos;
 
   var httpsUri = Uri(
       scheme: 'https',
-      host: 'piedra-back.herokuapp.com',
+      host: 'piedra-mongo-back-production.up.railway.app',
       path: '/api/dishes/get-by-id');
 
   Future<List<PlatillosDetail>> _getPlatillos() async {
-    
-
-    final response =
-        await http.post(httpsUri, body: {"id": "634ba2f4eff40f56e804d47a"});
-
-
+    final response = await http.post(httpsUri, body: {"id": widget.id});
 
     /* var url =
         Uri.parse('https://piedra-back.herokuapp.com/api/dishes/get-by-id');
@@ -125,7 +118,10 @@ class _Detail1PageState extends State<Detail1Page> {
               color: Colors.amber[600],
               onPressed: () => {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => BuyPage()))
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            BuyPage(widget.id, widget.name, widget.price)))
               },
             ),
           ],

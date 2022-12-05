@@ -35,6 +35,11 @@ class _Info_appState extends State<Info_app> {
           Column(
             children: [
               Text(
+                "Rol: Scrum Master",
+                style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              Text(
                 " - T.S.U VÍCTOR MANUEL TAMAYO BRIONES",
                 style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
@@ -50,20 +55,12 @@ class _Info_appState extends State<Info_app> {
                   ),
                 ),
               ),
-              Text(
-                "\n - T.S.U YESSYCA GARCIA CAMPOS",
-                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  radius: 120,
-                  child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-6/311912243_859448342094953_1409539188048918942_n.jpg?stp=c0.23.206.206a_dst-jpg_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=da31f3&_nc_eui2=AeGA4R3UNQUDJ-Znk5f0teucc6DQeqZN7IJzoNB6pk3sgrYfxaEWc-4_vbi9-jErxgBJPTsyyh742CK63vrP9yev&_nc_ohc=266faUC9LVEAX_nYkHU&_nc_ht=scontent-qro1-2.xx&oh=00_AfBLJOpbWtWNUjVHoxoYMckJW3QzaR868CYeu9AwTAfwGQ&oe=638F1D6B"),
-                    radius: 120,
-                  ),
+                child: Text(
+                  "Rol: Product Owner",
+                  style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
               ),
               Text(
@@ -78,6 +75,30 @@ class _Info_appState extends State<Info_app> {
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://scontent-qro1-2.xx.fbcdn.net/v/t1.6435-9/193214637_2926346684278779_3287568855833745487_n.jpg?stp=dst-jpg_p206x206&_nc_cat=103&ccb=1-7&_nc_sid=da31f3&_nc_eui2=AeG441WBjw0UlrX6KvjFDClXWRmAfxLZ73tZGYB_Etnve5oVqZ-QDeyKCHbME-0849M41rS-DAF6byQDam3Hv2TG&_nc_ohc=IpH57M470egAX_dc187&_nc_ht=scontent-qro1-2.xx&oh=00_AfD_0Y9PN4GZioLWfKxbJrgCUdCjI6FtqTX8iVh0eS8whw&oe=63B23ED3"),
+                    radius: 120,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Rol: Development Team",
+                  style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Text(
+                "\n - T.S.U YESSYCA GARCIA CAMPOS",
+                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 120,
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-6/311912243_859448342094953_1409539188048918942_n.jpg?stp=c0.23.206.206a_dst-jpg_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=da31f3&_nc_eui2=AeGA4R3UNQUDJ-Znk5f0teucc6DQeqZN7IJzoNB6pk3sgrYfxaEWc-4_vbi9-jErxgBJPTsyyh742CK63vrP9yev&_nc_ohc=266faUC9LVEAX_nYkHU&_nc_ht=scontent-qro1-2.xx&oh=00_AfBLJOpbWtWNUjVHoxoYMckJW3QzaR868CYeu9AwTAfwGQ&oe=638F1D6B"),
                     radius: 120,
                   ),
                 ),

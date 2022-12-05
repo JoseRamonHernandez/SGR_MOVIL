@@ -18,9 +18,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late Future<List<PlatillosDetail>> _listadoPlatillos;
 
+// https://piedra-mongo-back-production.up.railway.app/api/restaurants/get-all
+
   var httpsUri = Uri(
       scheme: 'https',
-      host: 'piedra-back.herokuapp.com',
+      host: 'piedra-mongo-back-production.up.railway.app',
       path: '/api/dishes/get-all');
 
   Future<List<PlatillosDetail>> _getPlatillos() async {
