@@ -104,7 +104,7 @@ class _BuyPageState extends State<BuyPage> {
                   TextFormField(
                     decoration: new InputDecoration(
                         hintText:
-                            "Hora de entrega (Aplica solo si es pedido de Empresa, si no aplica haga caso amiso)"),
+                            "Hora de entrega (Aplica solo si es pedido de Empresa, si no aplica haga caso omiso)"),
                     keyboardType: TextInputType.text,
                     onSaved: (value) {
                       dateValue = value!;

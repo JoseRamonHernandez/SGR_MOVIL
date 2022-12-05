@@ -157,8 +157,12 @@ notificacion(name, email, phone, message) async {
 
   // /*Future<List<Contacto>>*/ _getContacto() async {
 
-  final response = await http.post(httpsUri,
-      body: {"name": name, "email": email, "phone": phone, "message": message});
+  final response = await http.post(httpsUri, body: {
+    "name": name,
+    "email": email,
+    "phone": phone,
+    "message": message,
+  });
 
   // List<Contacto> platillos = [];
   if (response.statusCode == 200 || response.statusCode == 201) {
