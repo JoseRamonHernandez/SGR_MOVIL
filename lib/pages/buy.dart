@@ -114,12 +114,22 @@ class _BuyPageState extends State<BuyPage> {
                     onSaved: (value) {
                       dateValue = value!;
                     },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un dato correcto (min 1)';
+                      }
+                    },
                   ),
                   TextFormField(
                     decoration: new InputDecoration(hintText: "**Comentarios"),
                     keyboardType: TextInputType.text,
                     onSaved: (value) {
                       menssageValue = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Por favor ingrese un dato correcto (min 1)';
+                      }
                     },
                   ),
                   Padding(padding: EdgeInsets.symmetric(vertical: 16)),
@@ -185,16 +195,9 @@ compra(
   int cantidad = int.parse(countValue);
   int price = int.parse(precio);
   int total = cantidad * price;
+  String venta = total.toString();
 
   print("El total de la compra es: $total");
-
-  if (dateValue == "") {
-    dateValue = "Tiempo establecido";
-  }
-
-  if (menssageValue == "") {
-    menssageValue = "Sin comentarios";
-  }
 
   final response = await http.post(httpsUri, body: {
     "personName": nameValue,
@@ -206,7 +209,7 @@ compra(
     "dishesID": id,
     "dishesName": nombre,
     "dishesPrice": precio,
-    "total_de_la_venta": total
+    "total_de_la_venta": venta
   });
 
   // List<Contacto> platillos = [];
