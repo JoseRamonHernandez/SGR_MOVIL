@@ -8,6 +8,8 @@ import 'package:http/http.dart' as http;
 import 'detail1.dart';
 import 'models/PlatilloDetail.dart';
 
+import 'package:intl/intl.dart';
+
 class HomePage extends StatefulWidget {
   static String id = 'home_page';
 
@@ -99,8 +101,10 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> _listPlatillos(data) {
     List<Widget> platillos = [];
+    final numberFormat = NumberFormat.currency(locale: 'es_MX', symbol: "\$");
 
     for (var platillo in data) {
+      int price = int.parse(platillo.price);
       platillos.add(Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -119,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 ListTile(
                   contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
                   title: Text(platillo.name),
-                  subtitle: Text(platillo.price),
+                  subtitle: Text(numberFormat.format(price)),
                   leading: Icon(Icons.local_grocery_store_sharp),
                 ),
                 Row(

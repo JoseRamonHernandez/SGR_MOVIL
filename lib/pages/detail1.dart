@@ -7,6 +7,8 @@ import 'package:sgr_application1/pages/home.dart';
 import 'models/PlatilloDetail.dart';
 import 'package:http/http.dart' as http;
 
+import 'package:intl/intl.dart';
+
 class Detail1Page extends StatefulWidget {
   final String id;
   final String name;
@@ -65,6 +67,7 @@ class _Detail1PageState extends State<Detail1Page> {
 */
   @override
   Widget build(BuildContext context) {
+    int precio = int.parse(widget.price);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -103,7 +106,7 @@ class _Detail1PageState extends State<Detail1Page> {
                   children: [
                     Text("PRECIO DEL PLATILLO:",
                         style: TextStyle(fontSize: 25.0)),
-                    Text(widget.price, style: TextStyle(fontSize: 25.0)),
+                    Text("$precio pesos MXN", style: TextStyle(fontSize: 25.0)),
                     Text(widget.description,
                         style: TextStyle(fontSize: 20.0),
                         textAlign: TextAlign.justify),
