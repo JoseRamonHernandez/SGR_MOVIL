@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sgr_application1/pages/home.dart';
 import 'package:sgr_application1/pages/sale.dart';
+import 'package:http/http.dart' as http;
+import 'package:sgr_application1/pages/services/notification_false.dart';
+import 'package:sgr_application1/pages/services/notification_true.dart';
 
 class BuyPage extends StatefulWidget {
   // static String id = 'buy_page';
+
   final String id;
   final String nombre;
   final String precio;
@@ -23,6 +27,7 @@ class _BuyPageState extends State<BuyPage> {
   String countValue = '';
   String dateValue = '';
   String menssageValue = '';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -124,7 +129,7 @@ class _BuyPageState extends State<BuyPage> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          Navigator.push(
+                          /*Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => PageSale(
@@ -136,7 +141,18 @@ class _BuyPageState extends State<BuyPage> {
                                       menssageValue,
                                       widget.id,
                                       widget.nombre,
-                                      widget.precio)));
+                                      widget.precio)));*/
+                          compra(
+                              context,
+                              nameValue,
+                              direccionValue,
+                              numberValue,
+                              countValue,
+                              dateValue,
+                              menssageValue,
+                              widget.id,
+                              widget.nombre,
+                              widget.precio);
                         }
                       },
                       child: Text('Comprar')),
@@ -148,4 +164,119 @@ class _BuyPageState extends State<BuyPage> {
       ),
     ));
   }
+}
+
+compra(
+    BuildContext context,
+    String nameValue,
+    String direccionValue,
+    String numberValue,
+    String countValue,
+    String dateValue,
+    String menssageValue,
+    String id,
+    String nombre,
+    String precio) async {
+  var httpsUri = Uri(
+      scheme: 'https',
+      host: 'piedra-mongo-back-production.up.railway.app',
+      path: '/api/pedido/create/');
+
+  int cantidad = int.parse(countValue);
+  int price = int.parse(precio);
+  int total = cantidad * price;
+
+  print("El total de la compra es: $total");
+
+  if (dateValue == "") {
+    dateValue = "Tiempo establecido";
+  }
+
+  if (menssageValue == "") {
+    menssageValue = "Sin comentarios";
+  }
+
+  final response = await http.post(httpsUri, body: {
+    "personName": nameValue,
+    "address": direccionValue,
+    "personPhone": numberValue,
+    "dishesNumber": countValue,
+    "fecha_de_entrega": dateValue,
+    "message": menssageValue,
+    "dishesID": id,
+    "dishesName": nombre,
+    "dishesPrice": precio,
+    "total_de_la_venta": total
+  });
+
+  // List<Contacto> platillos = [];
+  if (response.statusCode == 200 || response.statusCode == 201) {
+    //showNotificacionTrue();
+    print("Registro exitoso");
+    showAlertDialog(context, nameValue, nombre, total);
+  } else {
+    //throw Exception("Falló la conexión");
+    // showNotificacionFalse();
+    print("Algo falló");
+    showAlertDialogError(context);
+  }
+  //}
+}
+
+showAlertDialog(
+    BuildContext context, String name, String dishesName, int total) {
+  // Create button
+  Widget okButton = ElevatedButton(
+    child: Text("OK"),
+    onPressed: () => {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()))
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Gracias por tu compra $name"),
+    content: Text(
+        "Tu pedido $dishesName ya fue recibido, el total de tu compras es de $total pesos MXN"),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialogError(BuildContext context) {
+  // Create button
+  Widget okButton = ElevatedButton(
+    child: Text("OK"),
+    onPressed: () => {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()))
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Ocurrio un error"),
+    content: Text("Comprueba tu conexión a internet e intentalo nuevamente."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

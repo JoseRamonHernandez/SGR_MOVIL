@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:sgr_application1/pages/help.dart';
 import 'package:sgr_application1/pages/models/Contacto.dart';
-import 'package:sgr_application1/pages/services/notification_false.dart';
-import 'package:sgr_application1/pages/services/notification_true.dart';
+import 'package:sgr_application1/pages/services/notification_false_contact.dart';
+import 'package:sgr_application1/pages/services/notification_true_contact.dart';
 
 import '../widgets/widget_drawer.dart';
 import 'contactDetail.dart';
@@ -14,8 +14,8 @@ import 'package:http/http.dart' as http;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initNotificationsTrue();
-  await initNotificationsFalse();
+  await initNotificationsTrueContact();
+  await initNotificationsFalseContact();
 
   runApp(const Contact());
 }
@@ -170,13 +170,14 @@ notificacion(BuildContext context, name, email, phone, message) async {
 
   // List<Contacto> platillos = [];
   if (response.statusCode == 200 || response.statusCode == 201) {
-    showNotificacionTrue();
+    showNotificacionTrueContact();
     print("Registro exitoso");
     showAlertDialog(context);
   } else {
     //throw Exception("Falló la conexión");
-    showNotificacionFalse();
+    showNotificacionFalseContact();
     print("Algo falló");
+    showAlertDialogError(context);
   }
   //}
 }
@@ -196,6 +197,35 @@ showAlertDialog(BuildContext context) {
     title: Text("Notificación"),
     content: Text(
         "Gracias por tu mensaje, muy pronto estaremos en contacto contigo."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialogError(BuildContext context) {
+  // Create button
+  Widget okButton = ElevatedButton(
+    child: Text("OK"),
+    onPressed: () => {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LocatePage()))
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Notificación"),
+    content: Text(
+        "Lo lamento, tu mensaje no pudo ser entregado. Comprueba tu conexión a internet e intentalo mas tarde."),
     actions: [
       okButton,
     ],
