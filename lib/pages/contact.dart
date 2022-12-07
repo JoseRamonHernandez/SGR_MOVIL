@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/pages/help.dart';
 import 'package:sgr_application1/pages/models/Contacto.dart';
 import 'package:sgr_application1/pages/services/notification_false.dart';
 import 'package:sgr_application1/pages/services/notification_true.dart';
@@ -55,7 +56,10 @@ class Contact extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                      "Ofrecemos nuestros servicios de concina y de meseros, para una cotización llena el siguiente formulario"),
+                    "Ofrecemos nuestros servicios de concina y de meseros, para una cotización llena el siguiente formulario",
+                    style: TextStyle(fontSize: 15),
+                    textAlign: TextAlign.center,
+                  ),
                   TextFormField(
                     decoration:
                         new InputDecoration(hintText: "Nombre Completo"),
@@ -109,8 +113,8 @@ class Contact extends StatelessWidget {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          notificacion(
-                              nameValue, emailValue, numberValue, messageValue);
+                          notificacion(context, nameValue, emailValue,
+                              numberValue, messageValue);
                           /*Navigator.push(
                               context,
                               notificacion(nameValue, emailValue, numberValue,
@@ -125,7 +129,7 @@ class Contact extends StatelessWidget {
                               );*/
                         }
                       },
-                      child: Text('Comprar')),
+                      child: Text('Enviar')),
                   /* ElevatedButton(
                       onPressed: () {
                         showNotificacionTrue();
@@ -142,7 +146,7 @@ class Contact extends StatelessWidget {
   }
 }
 
-notificacion(name, email, phone, message) async {
+notificacion(BuildContext context, name, email, phone, message) async {
   //late Future<List<Contacto>> _listadoContacto;
 
   var httpsUri = Uri(
@@ -168,10 +172,40 @@ notificacion(name, email, phone, message) async {
   if (response.statusCode == 200 || response.statusCode == 201) {
     showNotificacionTrue();
     print("Registro exitoso");
+    showAlertDialog(context);
   } else {
     //throw Exception("Falló la conexión");
     showNotificacionFalse();
     print("Algo falló");
   }
   //}
+}
+
+showAlertDialog(BuildContext context) {
+  // Create button
+  Widget okButton = ElevatedButton(
+    child: Text("OK"),
+    onPressed: () => {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LocatePage()))
+    },
+  );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Notificación"),
+    content: Text(
+        "Gracias por tu mensaje, muy pronto estaremos en contacto contigo."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
