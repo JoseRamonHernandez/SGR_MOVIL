@@ -31,7 +31,8 @@ class _Info_appState extends State<Info_app> {
                       TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal)),
             ),
           ),
-          Text("\n"),
+
+          Center(child: Image.asset("help/logoVYDR.png")),
           Column(
             children: [
               Text(
