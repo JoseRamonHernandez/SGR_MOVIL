@@ -18,17 +18,17 @@ class MenuLateral extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: Image.asset('assets/logo2.png'),
+                  child: Image.asset('help/logoVYDR.png'),
                 ),
               ],
             ),
             decoration: BoxDecoration(
-              color: Colors.amber[600],
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           ListTile(
-            title: const Text('Menú'),
-            leading: Icon(Icons.restaurant_menu),
+            title: const Text('Restaurantes'),
+            leading: Icon(Icons.local_restaurant_rounded),
             onTap: () {
               Navigator.pushNamed(context, HomePage.id);
             },

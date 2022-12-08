@@ -5,13 +5,16 @@ import 'package:http/http.dart' as http;
 import 'package:sgr_application1/pages/services/notification_false.dart';
 import 'package:sgr_application1/pages/services/notification_true.dart';
 
+import 'package:intl/intl.dart';
+
 class BuyPage extends StatefulWidget {
   // static String id = 'buy_page';
 
   final String id;
   final String nombre;
   final String precio;
-  BuyPage(this.id, this.nombre, this.precio, {super.key});
+  final String restaurantId;
+  BuyPage(this.id, this.nombre, this.precio, this.restaurantId, {super.key});
 
   @override
   _BuyPageState createState() => _BuyPageState();
@@ -109,7 +112,7 @@ class _BuyPageState extends State<BuyPage> {
                   TextFormField(
                     decoration: new InputDecoration(
                         hintText:
-                            "Hora de entrega (Aplica solo si es pedido de Empresa, si no aplica haga caso omiso)"),
+                            "Ahora tienes la opción de especificar la hora de entrega"),
                     keyboardType: TextInputType.text,
                     onSaved: (value) {
                       dateValue = value!;
@@ -125,11 +128,6 @@ class _BuyPageState extends State<BuyPage> {
                     keyboardType: TextInputType.text,
                     onSaved: (value) {
                       menssageValue = value!;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Por favor ingrese un dato correcto (min 1)';
-                      }
                     },
                   ),
                   Padding(padding: EdgeInsets.symmetric(vertical: 16)),
@@ -162,7 +160,8 @@ class _BuyPageState extends State<BuyPage> {
                               menssageValue,
                               widget.id,
                               widget.nombre,
-                              widget.precio);
+                              widget.precio,
+                              widget.restaurantId);
                         }
                       },
                       child: Text('Comprar')),
@@ -186,11 +185,16 @@ compra(
     String menssageValue,
     String id,
     String nombre,
-    String precio) async {
+    String precio,
+    String restaurantId) async {
   var httpsUri = Uri(
       scheme: 'https',
       host: 'piedra-mongo-back-production.up.railway.app',
       path: '/api/pedido/create/');
+
+  if (menssageValue == "") {
+    menssageValue = "Sin comentarios";
+  }
 
   int cantidad = int.parse(countValue);
   int price = int.parse(precio);
@@ -209,7 +213,8 @@ compra(
     "dishesID": id,
     "dishesName": nombre,
     "dishesPrice": precio,
-    "total_de_la_venta": venta
+    "total_de_la_venta": venta,
+    "restaurantId": restaurantId
   });
 
   // List<Contacto> platillos = [];
@@ -228,6 +233,7 @@ compra(
 
 showAlertDialog(
     BuildContext context, String name, String dishesName, int total) {
+  final numberFormat = NumberFormat.currency(locale: 'es_MX', symbol: "\$");
   // Create button
   Widget okButton = ElevatedButton(
     child: Text("OK"),
@@ -241,7 +247,7 @@ showAlertDialog(
   AlertDialog alert = AlertDialog(
     title: Text("Gracias por tu compra $name"),
     content: Text(
-        "Tu pedido $dishesName ya fue recibido, el total de tu compras es de $total pesos MXN"),
+        "Tu pedido $dishesName ya fue recibido y el total de tu compra es de $total pesos MXN"),
     actions: [
       okButton,
     ],

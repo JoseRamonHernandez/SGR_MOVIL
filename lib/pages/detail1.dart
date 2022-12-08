@@ -15,7 +15,9 @@ class Detail1Page extends StatefulWidget {
   final String description;
   final String price;
   final String photo;
+  final String restaurantId;
   Detail1Page(this.id, this.name, this.description, this.price, this.photo,
+      this.restaurantId,
       {super.key});
 
   @override
@@ -123,8 +125,8 @@ class _Detail1PageState extends State<Detail1Page> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            BuyPage(widget.id, widget.name, widget.price)))
+                        builder: (context) => BuyPage(widget.id, widget.name,
+                            widget.price, widget.restaurantId)))
               },
             ),
           ],
