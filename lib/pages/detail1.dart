@@ -98,18 +98,22 @@ class _Detail1PageState extends State<Detail1Page> {
             //Image.asset('assets/salmon.png'),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(child: Image.network(widget.photo)),
+              child: Container(
+                child: Image.network(widget.photo),
+                width: 300,
+                height: 400,
+              ),
             ),
             Text("\n"),
             Container(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Column(
                   children: [
-                    Text("PRECIO DEL PLATILLO:",
+                    Text("", style: TextStyle(fontSize: 25.0)),
+                    Text("PRECIO DEL PLATILLO: " + widget.price + " pesos MXN",
                         style: TextStyle(fontSize: 25.0)),
-                    Text("$precio pesos MXN", style: TextStyle(fontSize: 25.0)),
-                    Text(widget.description,
+                    Text("\nDescripción: " + widget.description,
                         style: TextStyle(fontSize: 20.0),
                         textAlign: TextAlign.justify),
                   ],

@@ -80,6 +80,7 @@ class _HomePageState extends State<HomePage> {
               textAlign: TextAlign.start,
             ),
           ),
+          automaticallyImplyLeading: false,
         ),
         body: FutureBuilder(
           future: _listadoRestaurants,
@@ -167,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: Text('Visitar',
                           style: TextStyle(
-                              fontSize: 10.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                     ),

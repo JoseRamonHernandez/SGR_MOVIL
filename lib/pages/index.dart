@@ -166,7 +166,7 @@ class _IndexPageState extends State<IndexPage> {
                       },
                       child: Text('Ordenar',
                           style: TextStyle(
-                              fontSize: 10.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                     ),
