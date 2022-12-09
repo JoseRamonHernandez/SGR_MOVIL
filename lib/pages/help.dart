@@ -42,20 +42,18 @@ class _HelpPageState extends State<HelpPage> {
                         children: [
                           Text(
                               "Al entrar a la aplicación, mientras carga aparecerá un logo del Restaurante"),
-                          Image.asset("help/load.png"),
+                          Image.asset("assets/help/load.png"),
                         ],
                       )),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
-                          child: Column(
-                        children: [
-                          Text(
-                              "La app cuenta con un navegador que facilita el uso de la misma."),
-                          Image.asset("help/nav.png"),
-                        ],
-                      )),
+                          child: Column(children: [
+                        Text(
+                            "La app cuenta con un navegador que facilita el uso de la misma."),
+                        Image.asset("assets/help/nav.png"),
+                      ])),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -64,14 +62,14 @@ class _HelpPageState extends State<HelpPage> {
                         children: [
                           Text(
                               "Como primera opción del navegador (Menú), te dirigira a la siguiente vista en donde veras los platillos disponibles."),
-                          Image.asset("help/home.png"),
+                          Image.asset("assets/help/home.png"),
                           Text(
                               "\nPodrás elegir el platillo que prefieras dandole click al botón (Ordenar) y esta es una vista en donde detalladamente se te mostrará la descripción del platillo con otro botón (Carrito de compras)."),
-                          Image.asset("help/desc1.png"),
-                          Image.asset("help/desc2.png"),
+                          Image.asset("assets/help/desc1.png"),
+                          Image.asset("assets/help/desc2.png"),
                           Text(
                               "\nAl precionar el botón te enviara al llenado de un formulario validado para realizar tu pedido (PRESTA ATENCIÓN A LAS INSTRUCCIONES)"),
-                          Image.asset("help/buyForm.png"),
+                          Image.asset("assets/help/buyForm.png"),
                           Text(
                               "Dale click al botón e inmediatamente se te enviara una notificación con la respuesta a tu petición (Si todo está bien o su hubo un error).")
                         ],
@@ -84,9 +82,9 @@ class _HelpPageState extends State<HelpPage> {
                         children: [
                           Text(
                               "Como segunda opción del navegador (Acerca de Nosotros), te enviará a la siguiente vista en donde verás información del Restaurante como, HORARIOS, TELEFONO, UBICACIÓN, REDES SOCIALES y un formulario de contacto"),
-                          Image.asset("help/info1.png"),
-                          Image.asset("help/info2.png"),
-                          Image.asset("help/contactForm.png")
+                          Image.asset("assets/help/info1.png"),
+                          Image.asset("assets/help/info2.png"),
+                          Image.asset("assets/help/contactForm.png")
                         ],
                       )),
                     ),
@@ -97,7 +95,7 @@ class _HelpPageState extends State<HelpPage> {
                         children: [
                           Text(
                               "Como tercera opción del navegador (Ayuda), te enviará a la siguiente vista que es donde te encuentras. Un listado de todo lo que hace la aplicación."),
-                          Image.asset("help/help.png")
+                          Image.asset("assets/help/help.png")
                         ],
                       )),
                     ),
@@ -108,7 +106,7 @@ class _HelpPageState extends State<HelpPage> {
                           children: [
                             Text(
                                 "\nComo cuarta opción del navegador (Información app), te enviará a una vista en dondé se mostrara a los desarrolladores."),
-                            Image.asset("help/autor1.png"),
+                            Image.asset("assets/help/autor1.png"),
                           ],
                         ),
                       ),

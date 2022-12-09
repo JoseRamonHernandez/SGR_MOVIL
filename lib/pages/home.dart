@@ -1,6 +1,8 @@
 import 'dart:convert';
+// import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:sgr_application1/pages/index.dart';
 import 'package:sgr_application1/widgets/widget_drawer.dart';
 
 import 'package:http/http.dart' as http;
@@ -10,6 +12,8 @@ import 'models/PlatilloDetail.dart';
 
 import 'package:intl/intl.dart';
 
+import 'models/Restaurants.dart';
+
 class HomePage extends StatefulWidget {
   static String id = 'home_page';
 
@@ -18,19 +22,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<PlatillosDetail>> _listadoPlatillos;
+  late Future<List<RestaurantsDetail>> _listadoRestaurants;
 
 // https://piedra-mongo-back-production.up.railway.app/api/restaurants/get-all
 
   var httpsUri = Uri(
       scheme: 'https',
       host: 'piedra-mongo-back-production.up.railway.app',
-      path: '/api/dishes/get-all');
+      path: '/api/restaurants/get-all');
 
-  Future<List<PlatillosDetail>> _getPlatillos() async {
+  Future<List<RestaurantsDetail>> _getRestaurants() async {
     final response = await http.get(httpsUri);
 
-    List<PlatillosDetail> platillos = [];
+    List<RestaurantsDetail> restaurantes = [];
 
     if (response.statusCode == 200) {
       //print(response.body);
@@ -38,15 +42,19 @@ class _HomePageState extends State<HomePage> {
 
       final jsonData = jsonDecode(body);
 
-      //print(jsonData["data"][0]["photos"]["path"]);
+      /*
+      print(jsonData["data"][0]["_id"]);
+      print(jsonData["data"][0]["name"]);
+      print(jsonData["data"][0]["coverPhoto"]["path"]);
+      */
 
       for (var item in jsonData["data"]) {
-        platillos.add(PlatillosDetail(item["name"], item["price"], item["_id"],
-            item["photos"][0]["path"], item["description"]));
+        restaurantes.add(RestaurantsDetail(
+            item["name"], item["_id"], item["coverPhoto"]["path"]));
         //print(platillos);
       }
 
-      return platillos;
+      return restaurantes;
     } else {
       throw Exception("Falló la conexión");
     }
@@ -55,7 +63,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _listadoPlatillos = _getPlatillos();
+    _listadoRestaurants = _getRestaurants();
     //  _getListado();
   }
 
@@ -65,28 +73,45 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.amber[600],
-          title: const Text('La Plazuela'),
+          title: Center(
+            child: const Text(
+              'SGR - Listado de Restaurantes (Escoge uno)',
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.start,
+            ),
+          ),
         ),
-        drawer: MenuLateral(),
         body: FutureBuilder(
-          future: _listadoPlatillos,
+          future: _listadoRestaurants,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               // print(snapshot.data);
-              return GridView.count(
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 10,
-                crossAxisCount: 2,
-                padding: EdgeInsets.all(10),
-                children: _listPlatillos(snapshot.data),
+              return Container(
+                child: GridView.count(
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  padding: EdgeInsets.all(10),
+                  children: _listRestaurants(snapshot.data),
+                ),
               );
             } else if (snapshot.hasError) {
               print(snapshot.error);
               return Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Center(
-                    child: Text(
-                        "Lo lamento. Ocurrio un error, comprueba tu conexión a internet e intentalo nuevamente")),
+                  child: Column(
+                    children: [
+                      Text("Nos encontramos en soporte, intentalo más tarde."),
+                      Image.network(
+                        "https://upacesanfernando.org/wp-content/uploads/2015/03/DISCULPE.gif",
+                        width: 300,
+                        height: 400,
+                        fit: BoxFit.contain,
+                      ),
+                    ],
+                  ),
+                ),
               );
             }
 
@@ -99,12 +124,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  List<Widget> _listPlatillos(data) {
+  List<Widget> _listRestaurants(data) {
     List<Widget> platillos = [];
     final numberFormat = NumberFormat.currency(locale: 'es_MX', symbol: "\$");
 
-    for (var platillo in data) {
-      int price = int.parse(platillo.price);
+    for (var restaurante in data) {
+      //int price = int.parse(platillo.price);
       platillos.add(Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -115,16 +140,15 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: <Widget>[
                 FadeInImage(
-                  image: NetworkImage(platillo.img),
+                  image: NetworkImage(restaurante.img),
                   placeholder: AssetImage('assets/loading.gif'),
                   fit: BoxFit.cover,
                   height: 200,
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
-                  title: Text(platillo.name),
-                  subtitle: Text(numberFormat.format(price)),
-                  leading: Icon(Icons.local_grocery_store_sharp),
+                  title: Text(restaurante.name),
+                  leading: Icon(Icons.local_restaurant_rounded),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -133,18 +157,15 @@ class _HomePageState extends State<HomePage> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.amber[600]),
                       onPressed: () => {
-                        print(platillo.id),
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Detail1Page(
-                                    platillo.id,
-                                    platillo.name,
-                                    platillo.description,
-                                    platillo.price,
-                                    platillo.img)))
+                                builder: (context) => IndexPage(
+                                      restaurante.id,
+                                      restaurante.name,
+                                    )))
                       },
-                      child: Text('Ordenar',
+                      child: Text('Visitar',
                           style: TextStyle(
                               fontSize: 10.0,
                               fontWeight: FontWeight.bold,

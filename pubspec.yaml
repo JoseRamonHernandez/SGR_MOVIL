@@ -38,6 +38,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_native_splash: ^2.2.14
+  flutter_lints: ^2.0.1
   
 
 flutter_native_splash:
@@ -83,6 +84,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/help/
+    - assets/nosotros/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

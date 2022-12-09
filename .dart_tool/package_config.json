@@ -98,6 +98,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_lints",
+      "rootUri": "file:///Users/victortamayo/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_local_notifications",
       "rootUri": "file:///Users/victortamayo/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-12.0.4",
       "packageUri": "lib/",
@@ -168,6 +174,12 @@
       "rootUri": "file:///Users/victortamayo/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
       "packageUri": "lib/",
       "languageVersion": "2.16"
+    },
+    {
+      "name": "lints",
+      "rootUri": "file:///Users/victortamayo/flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "matcher",
@@ -314,7 +326,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-12-09T06:59:12.206334Z",
+  "generated": "2022-12-09T07:56:24.005862Z",
   "generator": "pub",
   "generatorVersion": "2.18.5"
 }

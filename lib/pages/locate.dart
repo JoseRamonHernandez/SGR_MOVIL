@@ -18,17 +18,31 @@ class _LocatePageState extends State<LocatePage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.amber[600],
-          title: const Text('La Plazuela - Información'),
+          title: const Text('SGR - Información de Restaurantes'),
         ),
         drawer: MenuLateral(),
 
         //  bottomNavigationBar: BNavigator(),
         body: ListView(children: <Widget>[
-          Text(
-            "\n Restaurante LA PLAZUELA te invita a conocer y probar nuestra variedad de Platillos \n",
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
-            textAlign: TextAlign.center,
+          Container(
+            child: Column(
+              children: [
+                Text(
+                  "\n Somos una cadena de Restaurantes de variedad de comida y queremos llegar a tí facilitandote la opción de pedido, sin tener la necesidad de salir de casa o estar llamando y por exceso de trabajo no poder contestar tu llamada \n",
+                  style:
+                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "Puedes encontrarnos en los siguientes apartados.",
+                  style:
+                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
           ),
+
           telefono(),
           horarios(),
           direccion(),

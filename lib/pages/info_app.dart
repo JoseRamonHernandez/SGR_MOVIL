@@ -32,7 +32,7 @@ class _Info_appState extends State<Info_app> {
             ),
           ),
 
-          Center(child: Image.asset("help/logoVYDR.png")),
+          Center(child: Image.asset("assets/help/logoVYDR.png")),
           Column(
             children: [
               Text(
@@ -50,7 +50,7 @@ class _Info_appState extends State<Info_app> {
                 child: CircleAvatar(
                   radius: 120,
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("nosotros/vic.png"),
+                    backgroundImage: AssetImage("assets/nosotros/vic.png"),
                     radius: 120,
                   ),
                 ),
@@ -73,7 +73,7 @@ class _Info_appState extends State<Info_app> {
                 child: CircleAvatar(
                   radius: 120,
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("nosotros/dulce.png"),
+                    backgroundImage: AssetImage("assets/nosotros/dulce.png"),
                     radius: 120,
                   ),
                 ),
@@ -96,7 +96,7 @@ class _Info_appState extends State<Info_app> {
                 child: CircleAvatar(
                   radius: 120,
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("nosotros/yess.png"),
+                    backgroundImage: AssetImage("assets/nosotros/yess.png"),
                     radius: 120,
                   ),
                 ),
@@ -111,7 +111,7 @@ class _Info_appState extends State<Info_app> {
                 child: CircleAvatar(
                   radius: 120,
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("nosotros/ramon.png"),
+                    backgroundImage: AssetImage("assets/nosotros/ramon.png"),
                     radius: 120,
                   ),
                   //CircleAvatar
@@ -130,6 +130,7 @@ class _Info_appState extends State<Info_app> {
             ),
           ),
           //Text("\n"),
+
           Image.asset("assets/logoUTT.png")
         ]),
       ),
